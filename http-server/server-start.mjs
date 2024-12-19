@@ -4,11 +4,40 @@ import chalk from 'chalk';
 const server = createServer((request, response) => {
   response.writeHead(200, { 'content-type': 'text/html; charset=utf-8' });
 
-  const body = `
-        <!DOCTYPE html>
+  const body = `\<!DOCTYPE html\>
         <html>
         <head>
           <title>wmc learning</title>
+          <script type="text/javascript">
+          function startDarkmode() {
+            document.body.style.backgroundColor = 'black';
+            header.style.color = 'white';
+          
+            darkModeButton.style.visibility = 'hidden';
+            lightModeButton.style.visibility = 'visible';
+          
+            trainingsContainer.style.backgroundColor = '#111';
+            trainingsContainer.style.color = '#888';
+          
+            console.log\("- swapped to darkmode\n  + removed button & label"\);
+          }
+          function startLightmode() {
+            document.body.style.backgroundColor = 'white';
+            header.style.color = 'black';
+          
+            darkModeButton.style.visibility = 'visible';
+            lightModeButton.style.visibility = 'hidden';
+          
+            trainingsContainer.style.backgroundColor = '#555';
+            trainingsContainer.style.color = '#111';
+          
+            console.log("- swapped to lightmode\n  + removed button & label");
+          }
+          function runCode(){
+            const greeting = "Hello Jan";
+            console.log(greeting);
+          }
+          </script>
           <link rel="stylesheet" href="./indexStyle.css">
           <style>
           *
@@ -100,7 +129,7 @@ const server = createServer((request, response) => {
             padding-top: 0.1em;
           }
           </style>
-          <script src="./script.js"></script>
+ 
         </head>
 
         <body>
@@ -126,7 +155,7 @@ const server = createServer((request, response) => {
               </p>
             </div>
             <p>
-              <button id="runButton" onclick="runCode()"> ▶️Run </button>
+              <button id="runButton" href="javascript:void(0);" onclick="runCode()"> ▶️Run </button>
             </p>
           </grid>
         </body>
